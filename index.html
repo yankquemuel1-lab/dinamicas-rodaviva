@@ -18,6 +18,12 @@
   <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
   <!-- End Utmify Scripts -->
 
+  <!-- Disable Faceboook Auto PageView on History Change (Fix for BackRedirect + Utmify Bug) -->
+  <script>
+    window.fbq = window.fbq || function () { (window.fbq.q = window.fbq.q || []).push(arguments) };
+    window.fbq.disablePushState = true;
+  </script>
+
   <!-- Utmify Pixel Code -->
   <script>
     window.pixelId = "69a824994692c982b1c4319e";
