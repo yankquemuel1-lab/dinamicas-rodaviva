@@ -29,6 +29,10 @@
     fbq('track', 'PageView');
   </script>
   <!-- End Meta Pixel Code -->
+
+  <!-- Utmify Scripts -->
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
+  <!-- End Utmify Scripts -->
 </head>
 
 <body>
@@ -268,6 +272,34 @@
       });
     });
   </script>
+
+  <!-- Utmify Back Redirect Script -->
+  <script>
+    // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+    const link = 'https://api.whatsapp.com/send/?phone=5565992831247&text&type=phone_number&app_absent=0';
+
+    function setBackRedirect(url) {
+      let urlBackRedirect = url;
+      urlBackRedirect = urlBackRedirect =
+        urlBackRedirect.trim() +
+        (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+        document.location.search.replace('?', '').toString();
+
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+
+      window.addEventListener('popstate', () => {
+        console.log('onpopstate', urlBackRedirect);
+        setTimeout(() => {
+          location.href = urlBackRedirect;
+        }, 1);
+      });
+    }
+
+    setBackRedirect(link);
+  </script>
+  <!-- End Utmify Back Redirect Script -->
 </body>
 
 </html>
