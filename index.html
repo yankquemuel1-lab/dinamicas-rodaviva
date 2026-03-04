@@ -25,6 +25,11 @@
       s.parentNode.insertBefore(t, s)
     }(window, document, 'script',
       'https://connect.facebook.net/en_US/fbevents.js');
+
+    // Desabilitar rastreamento automático de SPA (Single Page Application)
+    // para evitar que o history.pushState do script de back-redirect dispare eventos duplicados
+    fbq.disablePushState = true;
+
     fbq('init', '750645367926664');
   </script>
   <!-- End Meta Pixel Code -->
